@@ -18,6 +18,7 @@
             @click="selectedPresentDate(key, keyone)">
             <day-card
               :day-obj="calendarlineone">
+              <h4>袁秉瑞</h4>
             </day-card>
           </li>
         </ul>
@@ -118,7 +119,6 @@ export default {
           this.calendar.push(this.createWeekdays(perWeek, currentYear, currentMonth, monthViewStartDate))
         }
       }
-      console.log(this.calendar)
     },
     createWeekdays (perWeek, currentYear, currentMonth, monthViewStartDate) {
       let week = []
@@ -146,10 +146,24 @@ export default {
 
 <style scoped>
 .event-calendar-box {
-
+  box-shadow: 0 0 5px 3px #eee;
+  padding: 15px;
+  /*width: 90%;
+  margin: 0 auto;*/
 }
 .calendar-days-box {
-  border: 1px #cb3a56 solid;
+  /*width: 77%;
+  margin: 0 auto;*/
+  overflow:hidden;
+  white-space:nowrap;
+  background-color: #ccc;
+  box-sizing: border-box;
+  /*padding: 1px 0;*/
+}
+.weekdays-line-box {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 0;
 }
 .weekdays-line-box li{
   display: inline-block;

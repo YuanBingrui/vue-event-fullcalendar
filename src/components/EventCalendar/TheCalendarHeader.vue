@@ -58,6 +58,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow:hidden;
+  white-space:nowrap;
 }
 .middle-show-box {
   margin: 5px 15px;

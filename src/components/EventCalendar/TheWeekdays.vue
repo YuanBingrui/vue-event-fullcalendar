@@ -26,14 +26,20 @@ export default {
 </script>
 
 <style>
+.weekdays-box {
+  overflow:hidden;
+  white-space:nowrap;
+}
+.weekdays-box ul {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding: 0;
+}
 .weekdays-box ul li {
   display: inline-block;
   list-style: none;
   padding: 5px 7px;
-  width: 100px;
-  background-color: #cb3a56;
-  margin: 0 5px;
-  border-radius: 4px;
-  color: #fff;
+  width: 6rem;
+  color: #cb3a56;
 }
 </style>

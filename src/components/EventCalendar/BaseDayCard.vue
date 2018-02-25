@@ -1,8 +1,16 @@
 <template>
   <div
     class="day-card-box"
-    v-bind:class="{ 'is-cur-month': !isCurMonth, 'is-today': isToday,'is-selected': isSelected && isRealMonth && isCurMonth, 'is-selected-non-curmonth': isSelected && !isRealMonth && isCurMonth, 'is-weekday': isWeekday}"
-  >{{dayObj.monthDay}}</div>
+    v-bind:class="{ 'is-cur-month': !isCurMonth, 'is-today': isToday,'is-selected': isSelected && isRealMonth && isCurMonth, 'is-selected-non-curmonth': isSelected && !isRealMonth && isCurMonth, 'is-weekday': isWeekday}">
+    <div
+      class="day-card-box-data-view"
+    >{{dayObj.monthDay}}
+    </div>
+    <div
+      class="day-card-box-event-view">
+      <slot></slot>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -39,21 +47,19 @@ export default {
 
 <style>
 .day-card-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-  border: 1px #cb3a56 solid;
-  margin: 0 5px;
-  border-radius: 4px;
+  width: 6rem;
+  height: 6rem;
+  background-color: #fff;
+  margin: 0.5px 0.5px;
   padding: 5px 7px;
 }
-/*.day-card-box:hover {
-  background-color: rgba(203, 58, 86, .5);
-}*/
+.day-card-box-data-view {
+  display: flex;
+  justify-content: flex-start;
+}
 .is-cur-month {
   background-color: #eee;
+  color: #ccc;
 }
 .is-selected-non-curmonth {
   background-color: #000;
