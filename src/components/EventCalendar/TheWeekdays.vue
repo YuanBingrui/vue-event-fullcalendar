@@ -1,7 +1,9 @@
 <template>
   <div class="weekdays-box">
     <ul>
-      <li v-for="weekday in weekdays" :key="weekday">
+      <li
+        v-for="weekday in weekdays"
+        :key="weekday">
         {{ weekday }}
       </li>
     </ul>

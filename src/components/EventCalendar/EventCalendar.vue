@@ -1,12 +1,24 @@
 <template>
   <div class="event-calendar-box">
-    <calendar-header :current-year="currentYear" :current-month="currentMonth"></calendar-header>
-    <weekdays :weekdays="weekArr"></weekdays>
+    <calendar-header
+      :current-year="currentYear"
+      :current-month="currentMonth">
+    </calendar-header>
+    <weekdays
+      :weekdays="weekArr">
+    </weekdays>
     <div class="calendar-days-box">
-      <div v-for="(calendarline, key) in calendar" :key="key">
+      <div
+        v-for="(calendarline, key) in calendar"
+        :key="key">
         <ul class="weekdays-line-box">
-          <li v-for="(calendarlineone, keyone) in calendarline" :key="keyone">
-            <day-card :day-obj="calendarlineone"></day-card>
+          <li
+            v-for="(calendarlineone, keyone) in calendarline"
+            :key="keyone"
+            @click="selectedPresentDate(key, keyone)">
+            <day-card
+              :day-obj="calendarlineone">
+            </day-card>
           </li>
         </ul>
       </div>
@@ -32,8 +44,11 @@ export default {
     return {
       currentYear: null,
       currentMonth: null,
+      realMonthStartDate: null,
       weekArr: null,
-      calendar: null
+      calendar: null,
+      initKey: null,
+      initKeyone: null
     }
   },
   created () {
@@ -44,6 +59,7 @@ export default {
     this.$on('next-month', this.nextMonth)
     this.currentYear = CalendarData.getYear()
     this.currentMonth = CalendarData.getMonth()
+    this.realMonthStartDate = moment().startOf('month')
     this.weekArr = CalendarData.getWeeks()
     this.getCalendar(this.currentYear, this.currentMonth)
   },
@@ -56,6 +72,7 @@ export default {
     backToToday () {
       this.currentYear = CalendarData.getYear()
       this.currentMonth = CalendarData.getMonth()
+      this.getCalendar(this.currentYear, this.currentMonth)
     },
     previousYear () {
       this.currentYear = CalendarData.previousYear(this.currentYear)
@@ -83,24 +100,45 @@ export default {
       }
       this.getCalendar(this.currentYear, this.currentMonth)
     },
+    selectedPresentDate (key, keyone) {
+      this.$set(this.calendar[this.initKey][this.initKeyone], 'isSelected', false)
+      this.$set(this.calendar[key][keyone], 'isSelected', true)
+      this.initKey = key
+      this.initKeyone = keyone
+    },
     getCalendar (currentYear, currentMonth) {
       let monthViewStartDate = CalendarData.getMonthViewStartDate(currentYear, currentMonth)
       this.calendar = []
       for (let perWeek = 0; perWeek < 6; perWeek++) {
-        let week = []
-        for (let perDay = 0; perDay < 7; perDay++) {
-          week.push({
-            monthDay: monthViewStartDate.date(),
-            isToday: monthViewStartDate.isSame(moment(), 'day'),
-            isCurMonth: monthViewStartDate.isSame(moment().year(currentYear).month(currentMonth - 1).startOf('month'), 'month'),
-            weekDay: perDay,
-            date: moment(monthViewStartDate)
-          })
-          monthViewStartDate.add(1, 'day')
+        if (perWeek >= 5) {
+          if (monthViewStartDate.isSame(moment().year(currentYear).month(currentMonth - 1).startOf('month'), 'month')) {
+            this.calendar.push(this.createWeekdays(perWeek, currentYear, currentMonth, monthViewStartDate))
+          }
+        } else {
+          this.calendar.push(this.createWeekdays(perWeek, currentYear, currentMonth, monthViewStartDate))
         }
-        this.calendar.push(week)
       }
       console.log(this.calendar)
+    },
+    createWeekdays (perWeek, currentYear, currentMonth, monthViewStartDate) {
+      let week = []
+      for (let perDay = 0; perDay < 7; perDay++) {
+        week.push({
+          monthDay: monthViewStartDate.date(),
+          isToday: monthViewStartDate.isSame(moment(), 'day'),
+          isCurMonth: monthViewStartDate.isSame(moment().year(currentYear).month(currentMonth - 1).startOf('month'), 'month'),
+          isRealMonth: this.realMonthStartDate.isSame(moment().year(currentYear).month(currentMonth - 1).startOf('month'), 'month'),
+          isSelected: monthViewStartDate.isSame(moment(), 'day'),
+          weekDay: perDay,
+          date: moment(monthViewStartDate)
+        })
+        if (monthViewStartDate.isSame(moment(), 'day')) {
+          this.initKey = perWeek
+          this.initKeyone = perDay
+        }
+        monthViewStartDate.add(1, 'day')
+      }
+      return week
     }
   }
 }

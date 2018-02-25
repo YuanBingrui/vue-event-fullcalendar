@@ -1,5 +1,8 @@
 <template>
-  <div class="day-card-box" v-bind:class="{ 'is-cur-month': !dayObj.isCurMonth, 'is-today': dayObj.isToday }">{{dayObj.monthDay}}</div>
+  <div
+    class="day-card-box"
+    v-bind:class="{ 'is-cur-month': !isCurMonth, 'is-today': isToday,'is-selected': isSelected && isRealMonth && isCurMonth, 'is-selected-non-curmonth': isSelected && !isRealMonth && isCurMonth, 'is-weekday': isWeekday}"
+  >{{dayObj.monthDay}}</div>
 </template>
 
 <script>
@@ -13,6 +16,23 @@ export default {
   },
   data () {
     return {}
+  },
+  computed: {
+    isCurMonth: function () {
+      return this.dayObj.isCurMonth
+    },
+    isRealMonth: function () {
+      return this.dayObj.isRealMonth
+    },
+    isToday: function () {
+      return this.dayObj.isToday
+    },
+    isSelected: function () {
+      return this.dayObj.isSelected
+    },
+    isWeekday: function () {
+      return this.dayObj.weekDay === 0 || this.dayObj.weekDay === 6
+    }
   }
 }
 </script>
@@ -29,13 +49,28 @@ export default {
   border-radius: 4px;
   padding: 5px 7px;
 }
-.day-card-box:hover{
+/*.day-card-box:hover {
   background-color: rgba(203, 58, 86, .5);
-}
-.is-cur-month{
+}*/
+.is-cur-month {
   background-color: #eee;
 }
-.is-today{
+.is-selected-non-curmonth {
+  background-color: #000;
+  color: #fff;
+  border: 1px #fff solid;
+  cursor: pointer;
+}
+.is-weekday {
+  color: #ccc;
+}
+.is-today {
+  color: #cb3a56;
+  font-weight: bold;
+}
+.is-selected {
   background-color: #cb3a56;
+  color: #fff;
+  cursor: pointer;
 }
 </style>

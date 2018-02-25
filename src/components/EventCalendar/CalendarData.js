@@ -44,7 +44,7 @@ CalendarData.getWeeks = function () {
 }
 
 CalendarData.getMonthViewStartDate = function (currentYear, currentMonth) {
-  let start = moment(moment().year(currentYear).month(currentMonth - 1).startOf('month'))
+  let start = moment().year(currentYear).month(currentMonth - 1).startOf('month')
 
   let startOfMonth = moment(start.startOf('month'))
 
