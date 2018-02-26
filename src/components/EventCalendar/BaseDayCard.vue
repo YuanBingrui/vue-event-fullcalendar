@@ -46,6 +46,8 @@ export default {
 </script>
 
 <style>
+@import 'common.css';
+
 .day-card-box {
   min-height: 5rem;
   background-color: #fff;
@@ -76,11 +78,11 @@ export default {
   color: #ccc;
 }
 .is-today {
-  color: #cb3a56;
+  color: var(--primary-color);
   font-weight: bold;
 }
 .is-selected {
-  background-color: #cb3a56;
+  background-color: var(--primary-color);
   color: #fff;
   cursor: pointer;
 }

@@ -54,6 +54,8 @@ export default {
 </script>
 
 <style>
+@import 'common.css';
+
 .calendan-header-box {
   display: flex;
   justify-content: center;
@@ -65,12 +67,13 @@ export default {
   margin: 5px 15px;
   cursor: pointer;
   font-size: 1.2vw;
+  color: var(--primary-color);
 }
 .handle-btn {
   cursor: pointer;
   background: #fff;
-  border: 1px solid #dcdfe6;
-  color: #606266;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
   text-align: center;
   box-sizing: border-box;
   margin: 0;
@@ -78,9 +81,8 @@ export default {
   border-radius: 3px;
   font-size: 1vw;
 }
-.handle-btn:hover, .handle-btn:focus {
+.handle-btn:hover {
   color: #fff;
-  border-color: #cb3a56;
-  background-color: #cb3a56;
+  background-color: var(--primary-color);
 }
 </style>

@@ -11,6 +11,11 @@ export default {
   name: 'App',
   components: {
     'event-calendar': EventCalendar
+  },
+  data () {
+    return {
+      primaryColor: '#e0ebaf'
+    }
   }
 }
 </script>

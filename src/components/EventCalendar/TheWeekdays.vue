@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style>
+@import 'common.css';
+
 .weekdays-box {
   width: 100%;
 }
@@ -41,7 +43,7 @@ export default {
 .weekdays-item {
   padding: 5px 7px;
   width: 11%;
-  color: #cb3a56;
+  color: var(--primary-color);
   word-wrap: break-word;
   text-align: center;
 }

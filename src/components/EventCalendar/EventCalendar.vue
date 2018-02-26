@@ -20,7 +20,7 @@
             @click="selectedPresentDate(key, keyone)">
             <day-card
               :day-obj="calendarlineone">
-              <span>袁秉瑞</span>
+              <span>事件项目</span>
             </day-card>
           </div>
         </div>
@@ -42,6 +42,12 @@ export default {
     'calendar-header': TheCalendarHeader,
     'weekdays': TheWeekdays,
     'day-card': BaseDayCard
+  },
+  props: {
+    primaryColor: {
+      type: String,
+      default: '#007bbb'
+    }
   },
   data () {
     return {
@@ -68,7 +74,8 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      // this.currentYear = CalendarData.getYear()
+      // 设置主题色
+      document.documentElement.style.setProperty('--primary-color', this.primaryColor)
     })
   },
   methods: {
@@ -147,6 +154,8 @@ export default {
 </script>
 
 <style scoped>
+@import 'common.css';
+
 .event-calendar-box {
   box-shadow: 0 0 5px 3px #eee;
   padding: 1.1vw;
