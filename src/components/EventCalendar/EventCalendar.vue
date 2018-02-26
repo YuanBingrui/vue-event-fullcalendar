@@ -148,22 +148,22 @@ export default {
 .event-calendar-box {
   box-shadow: 0 0 5px 3px #eee;
   padding: 15px;
-  /*width: 90%;
-  margin: 0 auto;*/
+  width: 50%;
+  margin: 0 auto;
 }
 .calendar-days-box {
-  /*width: 77%;
-  margin: 0 auto;*/
-  overflow:hidden;
-  white-space:nowrap;
+  width: 98.48%;
+  margin: 0 auto;
+  overflow: auto;
+  white-space: nowrap;
   background-color: #ccc;
-  box-sizing: border-box;
-  /*padding: 1px 0;*/
+  padding: 0.5px 0;
 }
 .weekdays-line-box {
   margin-top: 0;
   margin-bottom: 0;
   padding: 0;
+  width: auto;
 }
 .weekdays-line-box li{
   display: inline-block;

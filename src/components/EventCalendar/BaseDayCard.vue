@@ -1,10 +1,10 @@
 <template>
   <div
     class="day-card-box"
-    v-bind:class="{ 'is-cur-month': !isCurMonth, 'is-today': isToday,'is-selected': isSelected && isRealMonth && isCurMonth, 'is-selected-non-curmonth': isSelected && !isRealMonth && isCurMonth, 'is-weekday': isWeekday}">
+    v-bind:class="{ 'is-cur-month': !isCurMonth, 'is-today': isToday,'is-selected': isSelected && isRealMonth && isCurMonth, 'is-selected-non-curmonth': isSelected && !isRealMonth && isCurMonth, 'is-weekday': isWeekday }">
     <div
       class="day-card-box-data-view"
-    >{{dayObj.monthDay}}
+    >{{ dayObj.monthDay }}
     </div>
     <div
       class="day-card-box-event-view">
