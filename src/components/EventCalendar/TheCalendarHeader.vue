@@ -58,12 +58,13 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow:hidden;
-  white-space:nowrap;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .middle-show-box {
   margin: 5px 15px;
   cursor: pointer;
+  font-size: 1.2vw;
 }
 .handle-btn {
   cursor: pointer;
@@ -74,8 +75,8 @@ export default {
   box-sizing: border-box;
   margin: 0;
   padding: 3px 10px;
-  font-size: 12px;
   border-radius: 3px;
+  font-size: 1vw;
 }
 .handle-btn:hover, .handle-btn:focus {
   color: #fff;

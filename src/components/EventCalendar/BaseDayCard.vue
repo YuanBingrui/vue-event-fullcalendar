@@ -47,15 +47,21 @@ export default {
 
 <style>
 .day-card-box {
-  width: 6rem;
-  height: 6rem;
+  min-height: 5rem;
   background-color: #fff;
-  margin: 0.5px 0.5px;
   padding: 5px 7px;
 }
 .day-card-box-data-view {
   display: flex;
   justify-content: flex-start;
+  font-size: 1vw;
+}
+.day-card-box-event-view {
+  font-size: 1.2vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
 }
 .is-cur-month {
   background-color: #eee;
@@ -64,7 +70,6 @@ export default {
 .is-selected-non-curmonth {
   background-color: #000;
   color: #fff;
-  border: 1px #fff solid;
   cursor: pointer;
 }
 .is-weekday {

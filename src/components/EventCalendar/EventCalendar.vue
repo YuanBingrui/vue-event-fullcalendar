@@ -11,17 +11,19 @@
       <div
         v-for="(calendarline, key) in calendar"
         :key="key">
-        <ul class="weekdays-line-box">
-          <li
+        <div
+          class="days-line-list">
+          <div
+            class="days-line-item"
             v-for="(calendarlineone, keyone) in calendarline"
             :key="keyone"
             @click="selectedPresentDate(key, keyone)">
             <day-card
               :day-obj="calendarlineone">
-              <h4>袁秉瑞</h4>
+              <span>袁秉瑞</span>
             </day-card>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -147,26 +149,28 @@ export default {
 <style scoped>
 .event-calendar-box {
   box-shadow: 0 0 5px 3px #eee;
-  padding: 15px;
-  width: 50%;
+  padding: 1.1vw;
+  width: 95%;
   margin: 0 auto;
 }
 .calendar-days-box {
-  width: 98.48%;
+  width: 100%;
   margin: 0 auto;
-  overflow: auto;
+  overflow: hidden;
   white-space: nowrap;
   background-color: #ccc;
   padding: 0.5px 0;
 }
-.weekdays-line-box {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding: 0;
-  width: auto;
+.days-line-list {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 1px;
+  box-sizing: border-box;
 }
-.weekdays-line-box li{
-  display: inline-block;
-  list-style: none;
+.days-line-item {
+  box-sizing: border-box;
+  margin: 0.5px 0.5px;
+  flex-grow: 1;
 }
+
 </style>

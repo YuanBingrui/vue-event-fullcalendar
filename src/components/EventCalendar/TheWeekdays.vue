@@ -1,12 +1,14 @@
 <template>
   <div class="weekdays-box">
-    <ul>
-      <li
+    <div class="weekdays-list">
+      <div
+        class="weekdays-item"
         v-for="weekday in weekdays"
-        :key="weekday">
+        :key="weekday"
+        >
         {{ weekday }}
-      </li>
-    </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -27,19 +29,20 @@ export default {
 
 <style>
 .weekdays-box {
-  overflow:hidden;
-  white-space:nowrap;
+  width: 100%;
 }
-.weekdays-box ul {
+.weekdays-list {
   margin-top: 1rem;
-  margin-bottom: 0;
-  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  font-size: 1.2vw;
 }
-.weekdays-box ul li {
-  display: inline-block;
-  list-style: none;
+.weekdays-item {
   padding: 5px 7px;
-  width: 6rem;
+  width: 11%;
   color: #cb3a56;
+  word-wrap: break-word;
+  text-align: center;
 }
 </style>
