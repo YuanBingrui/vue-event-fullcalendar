@@ -49,7 +49,7 @@ export default {
 @import 'common.css';
 
 .day-card-box {
-  min-height: 5rem;
+  min-height: 7vw;
   background-color: #fff;
   padding: 5px 7px;
 }

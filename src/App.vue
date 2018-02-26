@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div class="silde-menu"></div>
     <event-calendar></event-calendar>
   </div>
 </template>
@@ -27,5 +28,8 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+.silde-menu{
+  width: 250px;
 }
 </style>
