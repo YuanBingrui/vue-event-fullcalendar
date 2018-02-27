@@ -20,7 +20,12 @@
             @click="selectedPresentDate(key, keyone)">
             <day-card
               :day-obj="calendarlineone">
-              <span>事件项目</span>
+              <event-card
+                v-for="event in events"
+                :key="event.date"
+                :event="event"
+                v-if="dataToMomentObj(calendarlineone.date) === event.date">
+              </event-card>
             </day-card>
           </div>
         </div>
@@ -35,18 +40,26 @@ import moment from 'moment'
 import TheCalendarHeader from './TheCalendarHeader'
 import TheWeekdays from './TheWeekdays'
 import BaseDayCard from './BaseDayCard'
+import BaseEventCard from './BaseEventCard'
 
 export default {
   name: 'EventCalendar',
   components: {
     'calendar-header': TheCalendarHeader,
     'weekdays': TheWeekdays,
-    'day-card': BaseDayCard
+    'day-card': BaseDayCard,
+    'event-card': BaseEventCard
   },
   props: {
     primaryColor: {
       type: String,
       default: '#007bbb'
+    },
+    events: {
+      type: Array,
+      validator (val) {
+        return val instanceof Array
+      }
     }
   },
   data () {
@@ -128,6 +141,7 @@ export default {
           this.calendar.push(this.createWeekdays(perWeek, currentYear, currentMonth, monthViewStartDate))
         }
       }
+      console.log(this.calendar)
     },
     createWeekdays (perWeek, currentYear, currentMonth, monthViewStartDate) {
       let week = []
@@ -148,6 +162,9 @@ export default {
         monthViewStartDate.add(1, 'day')
       }
       return week
+    },
+    dataToMomentObj (date) {
+      return moment(date).format('YYYY-MM-DD')
     }
   }
 }
@@ -180,6 +197,7 @@ export default {
   box-sizing: border-box;
   margin: 0.5px 0.5px;
   flex-grow: 1;
+  width: 14.15%;
 }
 
 </style>

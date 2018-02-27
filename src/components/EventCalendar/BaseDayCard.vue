@@ -60,9 +60,6 @@ export default {
 }
 .day-card-box-event-view {
   font-size: 1.2vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 5px;
 }
 .is-cur-month {

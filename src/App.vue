@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="silde-menu"></div>
-    <event-calendar></event-calendar>
+    <event-calendar :events="demoEvents"></event-calendar>
   </div>
 </template>
 
@@ -15,7 +15,17 @@ export default {
   },
   data () {
     return {
-      primaryColor: '#e0ebaf'
+      primaryColor: '#e0ebaf',
+      demoEvents: [
+        {
+          title: '事件01 1/27-2/2',
+          date: '2018-03-05'
+        },
+        {
+          title: '事件02 3/27-3/28',
+          date: '2018-02-25'
+        }
+      ]
     }
   }
 }
