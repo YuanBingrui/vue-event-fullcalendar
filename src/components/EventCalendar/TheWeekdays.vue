@@ -4,8 +4,7 @@
       <div
         class="weekdays-item"
         v-for="weekday in weekdays"
-        :key="weekday"
-        >
+        :key="weekday">
         {{ weekday }}
       </div>
     </div>
@@ -27,11 +26,12 @@ export default {
 }
 </script>
 
-<style>
-@import 'common.css';
+<style scoped>
+@import '../../style/common.css';
 
 .weekdays-box {
   width: 100%;
+  background-color: #f8f8f8;
 }
 .weekdays-list {
   margin-top: 1rem;

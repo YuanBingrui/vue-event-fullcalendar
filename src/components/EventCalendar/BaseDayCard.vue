@@ -45,11 +45,11 @@ export default {
 }
 </script>
 
-<style>
-@import 'common.css';
+<style scoped>
+@import '../../style/common.css';
 
 .day-card-box {
-  min-height: 7vw;
+  min-height: 120px;
   background-color: #fff;
   padding: 5px 7px;
 }
@@ -63,7 +63,7 @@ export default {
   margin-top: 5px;
 }
 .is-cur-month {
-  background-color: #eee;
+  background-color: #f6f6f6;
   color: #ccc;
 }
 .is-selected-non-curmonth {

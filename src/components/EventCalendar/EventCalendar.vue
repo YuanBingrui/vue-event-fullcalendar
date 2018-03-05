@@ -9,25 +9,23 @@
     </weekdays>
     <div class="calendar-days-box">
       <div
+        class="days-line-list"
         v-for="(calendarline, key) in calendar"
         :key="key">
         <div
-          class="days-line-list">
-          <div
-            class="days-line-item"
-            v-for="(calendarlineone, keyone) in calendarline"
-            :key="keyone"
-            @click="selectedPresentDate(key, keyone)">
-            <day-card
-              :day-obj="calendarlineone">
-              <event-card
-                v-for="event in events"
-                :key="event.date"
-                :event="event"
-                v-if="dataToMomentObj(calendarlineone.date) === event.date">
-              </event-card>
-            </day-card>
-          </div>
+          class="days-line-item"
+          v-for="(calendarlineone, keyone) in calendarline"
+          :key="keyone"
+          @click="selectedPresentDate(key, keyone)">
+          <day-card
+            :day-obj="calendarlineone">
+            <event-card
+              v-for="event in events"
+              :key="event.date"
+              :event="event"
+              v-if="dataToMomentObj(calendarlineone.date) === event.date">
+            </event-card>
+          </day-card>
         </div>
       </div>
     </div>
@@ -67,7 +65,7 @@ export default {
       currentYear: null,
       currentMonth: null,
       realMonthStartDate: null,
-      weekArr: null,
+      weekArr: ['星期天', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
       calendar: null,
       initKey: null,
       initKeyone: null
@@ -82,7 +80,6 @@ export default {
     this.currentYear = CalendarData.getYear()
     this.currentMonth = CalendarData.getMonth()
     this.realMonthStartDate = moment().startOf('month')
-    this.weekArr = CalendarData.getWeeks()
     this.getCalendar(this.currentYear, this.currentMonth)
   },
   mounted () {
@@ -171,26 +168,24 @@ export default {
 </script>
 
 <style scoped>
-@import 'common.css';
+@import '../../style/common.css';
 
 .event-calendar-box {
-  box-shadow: 0 0 5px 3px #eee;
-  padding: 1.1vw;
-  width: 95%;
+  padding-top: 1.1vw;
+  width: 100%;
   margin: 0 auto;
+  background-color: #fafafa;
 }
 .calendar-days-box {
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
   white-space: nowrap;
-  background-color: #ccc;
-  padding: 0.5px 0;
+  background-color: #b3afaf;
 }
 .days-line-list {
   display: flex;
   justify-content: space-around;
-  padding: 0 1px;
   box-sizing: border-box;
 }
 .days-line-item {
@@ -198,6 +193,18 @@ export default {
   margin: 0.5px 0.5px;
   flex-grow: 1;
   width: 14.15%;
+}
+.days-line-list .days-line-item:first-child {
+  margin-left: 1px;
+}
+.days-line-list .days-line-item:last-child {
+  margin-right: 1px;
+}
+.calendar-days-box .days-line-list:first-child .days-line-item {
+  margin-top: 1px;
+}
+.calendar-days-box .days-line-list:last-child .days-line-item {
+  margin-bottom: 1px;
 }
 
 </style>

@@ -53,8 +53,8 @@ export default {
 }
 </script>
 
-<style>
-@import 'common.css';
+<style scoped>
+@import '../../style/common.css';
 
 .calendan-header-box {
   display: flex;
