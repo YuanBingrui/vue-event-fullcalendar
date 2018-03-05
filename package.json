@@ -1,15 +1,25 @@
 {
-  "name": "vue-event-calendar",
+  "name": "vue-event-fullcalendar",
   "version": "1.0.0",
-  "description": "A event calendar vue.js component",
-  "author": "袁秉瑞 <bingrui.yuan@roadshare.com>",
-  "private": true,
+  "description": "A vue plugin for showing events calendar ",
+  "author": "袁秉瑞 <bingrui_yuan0721@163.com>",
+  "private": false,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --open --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:YuanBingrui/vue-event-fullcalendar.git"
+  },
+  "keywords": [
+    "vue",
+    "event",
+    "calendar",
+    "event calendar"
+  ],
   "dependencies": {
     "moment": "^2.20.1",
     "vue": "^2.5.2"
@@ -69,5 +79,6 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "license": "MIT"
 }
