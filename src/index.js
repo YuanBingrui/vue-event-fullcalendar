@@ -5,7 +5,7 @@ const VueEventFullCalendar = {
     if (typeof window !== 'undefined' && window.Vue) {
       Vue = window.Vue
     }
-    Vue.component('event-fullCalendar', EventFullCalendar)
+    Vue.component('event-full-calendar', EventFullCalendar)
   }
 }
 

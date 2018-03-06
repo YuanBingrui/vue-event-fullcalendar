@@ -3,11 +3,11 @@ require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
 
-const ora = require('ora')
-const rm = require('rimraf')
-const path = require('path')
-const chalk = require('chalk')
-const webpack = require('webpack')
+const ora = require('ora') // 显示loading效果
+const rm = require('rimraf') // 删除特定路径想的文件或文件夹，封装的rm -rf 命令
+const path = require('path') // node路径
+const chalk = require('chalk') // 命令行彩色输出
+const webpack = require('webpack') //加载webpack
 const config = require('../config')
 const webpackConfig = require('./webpack.prod.conf')
 

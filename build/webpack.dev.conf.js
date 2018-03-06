@@ -13,6 +13,15 @@ const portfinder = require('portfinder')
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
 
+baseWebpackConfig.entry = {
+  app: './demo/main.js'
+}
+
+// // add hot-reload related code to entry chunks
+// Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+//   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
+// })
+
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap, usePostCSS: true })
