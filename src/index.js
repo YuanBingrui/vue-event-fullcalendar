@@ -1,12 +1,18 @@
 import EventFullCalendar from './components/EventFullCalendar/EventFullCalendar.vue'
 
 const VueEventFullCalendar = {
-  install: function (Vue) {
-    if (typeof window !== 'undefined' && window.Vue) {
-      Vue = window.Vue
-    }
-    Vue.component('event-full-calendar', EventFullCalendar)
-  }
+  'event-full-calendar': EventFullCalendar
 }
 
-export default VueEventFullCalendar
+const install = function (Vue) {
+  Object.keys(VueEventFullCalendar).forEach((key) => {
+    Vue.component(key, VueEventFullCalendar[key])
+  })
+}
+
+// auto install
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
+
+export default Object.assign(VueEventFullCalendar, {install})

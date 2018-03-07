@@ -8,17 +8,39 @@
 
 ### install
 
-By npm
+By npm or yarn
 ```
 npm i vue-event-fullcalendar@latest -S
-```
-By yarn
-```
+
 yarn add vue-event-fullcalendar@latest
 ```
-By script
+By CDN
 ```
-<script src='dist/js/vue-fulcalendar.min.js'>
+<script src='vue-fulcalendar.min.js'>
+```
+CDN example
+```
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vue-event-fullcalendar</title>
+    <script type="text/javascript" src="vue.min.js"></script>
+    <script type="text/javascript" src="vue-event-fullcalendar.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <event-full-calendar></event-full-calendar>
+    </div>
+    <script>
+        new Vue({
+            el: '#app'
+        })
+    </script>
+</body>
+</html>
 ```
 
 ### Usage
