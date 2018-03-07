@@ -4,7 +4,7 @@
 
 ### Screenshots
 
-![screenshots.png](screenshots.png)
+![screenshots.png](./static/screenshots.png)
 
 ### install
 
@@ -111,7 +111,7 @@ export default {
 ```
 
 here is a demo screenshots
-![screenshots.png](screenshots.png)
+![screenshots.png](./static/screenshots.png)
 
 ### Docs
 
