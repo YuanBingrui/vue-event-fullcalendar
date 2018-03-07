@@ -1,7 +1,7 @@
 {
   "name": "vue-event-fullcalendar",
   "version": "1.0.0",
-  "description": "A vue plugin for showing events calendar ",
+  "description": "A vue plugin for showing events calendar",
   "author": "袁秉瑞 <bingrui_yuan0721@163.com>",
   "private": false,
   "main": "dist/js/vue-event-fullcalendar.min.js",
